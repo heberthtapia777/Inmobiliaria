@@ -1,0 +1,1 @@
+<?php require_once "srvInmoviliaria/app/lib/db.php"; ?>

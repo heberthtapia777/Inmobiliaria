@@ -1,0 +1,2 @@
+[08-May-2019 12:34:49 America/Chicago] PHP Parse error:  syntax error, unexpected '}' in /home1/hosting/sistemas.technosoft-bolivia.net/proyecto87/correo/enviar.php on line 87
+[08-May-2019 12:37:18 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home1/hosting/sistemas.technosoft-bolivia.net/proyecto87/correo/enviar.php:1) in /home1/hosting/sistemas.technosoft-bolivia.net/proyecto87/correo/enviar.php on line 86

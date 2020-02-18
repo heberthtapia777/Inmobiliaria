@@ -1,0 +1,24 @@
+[17-May-2019 16:19:18 America/Chicago] PHP Fatal error:  Uncaught Error: Class 'Slim\Container' not found in /home1/hosting/proyecto87.com.bo/srvInmoviliaria/public/index.php:19
+Stack trace:
+#0 {main}
+  thrown in /home1/hosting/proyecto87.com.bo/srvInmoviliaria/public/index.php on line 19
+[17-May-2019 16:21:06 America/Chicago] PHP Fatal error:  Uncaught Error: Class 'Slim\Container' not found in /home1/hosting/proyecto87.com.bo/srvInmoviliaria/public/index.php:19
+Stack trace:
+#0 {main}
+  thrown in /home1/hosting/proyecto87.com.bo/srvInmoviliaria/public/index.php on line 19
+[17-May-2019 16:23:21 America/Chicago] PHP Fatal error:  Uncaught Error: Class 'Slim\Container' not found in /home1/hosting/proyecto87.com.bo/srvInmoviliaria/public/index.php:19
+Stack trace:
+#0 {main}
+  thrown in /home1/hosting/proyecto87.com.bo/srvInmoviliaria/public/index.php on line 19
+[17-May-2019 16:30:18 America/Chicago] PHP Fatal error:  Uncaught Error: Class 'Slim\Container' not found in /home1/hosting/proyecto87.com.bo/srvInmoviliaria/public/index.php:19
+Stack trace:
+#0 {main}
+  thrown in /home1/hosting/proyecto87.com.bo/srvInmoviliaria/public/index.php on line 19
+[17-May-2019 16:38:26 America/Chicago] PHP Fatal error:  Uncaught Error: Class 'Slim\Container' not found in /home1/hosting/proyecto87.com.bo/srvInmoviliaria/public/index.php:19
+Stack trace:
+#0 {main}
+  thrown in /home1/hosting/proyecto87.com.bo/srvInmoviliaria/public/index.php on line 19
+[17-May-2019 16:39:23 America/Chicago] PHP Fatal error:  Uncaught Error: Class 'Slim\Container' not found in /home1/hosting/proyecto87.com.bo/srvInmoviliaria/public/index.php:19
+Stack trace:
+#0 {main}
+  thrown in /home1/hosting/proyecto87.com.bo/srvInmoviliaria/public/index.php on line 19
