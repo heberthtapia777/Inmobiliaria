@@ -20,6 +20,8 @@
 	            $result = $dbh->fetchAll();
 				$this->ID_CASA= $result[0]["ID_CASA"];
 				$this->ID_PROPIEDAD = $result[0]["ID_PROPIEDAD"];
+				$this->TITULO = $result[0]["TITULO"];
+				$this->RESUMEN = $result[0]["RESUMEN"];
 				$this->DETALLE = $result[0]["DETALLE"];
 				$this->CAPACIDAD = $result[0]["CAPACIDAD"];
 				$this->GEOREFERENCIACION = $result[0]["GEOREFERENCIACION"];

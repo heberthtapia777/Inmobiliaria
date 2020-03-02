@@ -2,7 +2,7 @@ $(document).ready(function () {
     $('#dataTables-example').dataTable();
     initMap();
     //initMapEditView(0,0,"zz");
-    
+
 });
 
 var map;
@@ -47,10 +47,14 @@ function initMap(){
 		//PASAR LAS COORDENADAS AL FORMULARIO
 		formulario.find("input[name='cx']").val(lista[0]);
 		formulario.find("input[name='cy']").val(lista[1]);
-		
+
 		//UBICAR EL MARCADOR EN EL MAPA
 		markers.push(marcador);
-		
+
+		//AGREGAR EVENTO CLICK AL MARCADOR
+		google.maps.event.addListener(marcador, "click", function(){
+			//alert(marcador.titulo);
+		});
 		deleteMarkers(markers);
 		marcador.setMap(mapa);
 	});
@@ -60,18 +64,20 @@ function initMap(){
 function initMapEdit(x,y,titulo){
 	if(x==0 || y==0)
 		var punto = new google.maps.LatLng(-16.499299167397574, -68.1646728515625);
-	else		
+	else
 		var punto = new google.maps.LatLng(x,y);
 	var config = {
 		zoom:12,
 		center:punto,
 		mapTypeId: google.maps.MapTypeId.ROADMAP
-	};		
+	};
 	mapa = new google.maps.Map( $("#mapaEdit")[0], config );
 	var marker = new google.maps.Marker({
 	    position: punto,
 	    title:titulo
 	});
+
+	marcadores_bd.push(marker);
 
 	// To add the marker to the map, call setMap();
 	google.maps.event.addListener(mapa, "click", function(event){
@@ -95,16 +101,17 @@ function initMapEdit(x,y,titulo){
 		//PASAR LAS COORDENADAS AL FORMULARIO
 		formulario.find("input[name='cx_EDIT']").val(lista[0]);
 		formulario.find("input[name='cy_EDIT']").val(lista[1]);
-		
+
 		//UBICAR EL MARCADOR EN EL MAPA
 		//setMapOnAll(null);
+		deleteMarkers(marcadores_bd);
 		deleteMarkers(markers);
 		markers.push(marcador);
-		
+
 	});
 	deleteMarkers(markers);
 	marker.setMap(mapa);
-	
+
 	var formulario = $('#formularioEdit');
 	//PASAR LAS COORDENADAS AL FORMULARIO
 	formulario.find("input[name='cx_EDIT']").val(x);
@@ -176,50 +183,50 @@ function validar(){
 	var imagenSerializada = "";
 	var enlaceSerializada = "";
 	$(".file-preview-image").each(function(index) {
-		imagenSerializada = imagenSerializada + $(this).attr('src') + "@";   
-	    
+		imagenSerializada = imagenSerializada + $(this).attr('src') + "@";
+
 	});
-	
+
 	for(var i=1; i<=5; i++){
 		if($("#ENLACE_"+i).val().trim()!=""){
-			enlaceSerializada = enlaceSerializada + $("#ENLACE_"+i).val() + "|";			
-		}		
+			enlaceSerializada = enlaceSerializada + $("#ENLACE_"+i).val() + "|";
+		}
 	}
 	if(enlaceSerializada.trim()!=""){
 		enlaceSerializada = enlaceSerializada.substring(0,enlaceSerializada.length-1);
 	}
-	
+
 	if(imagenSerializada!="")
 		imagenSerializada = imagenSerializada.substring(0,imagenSerializada.length-1);
-	
+
 	$("#enlaceSerializada").val(enlaceSerializada);
 	$("#imagenSerializada").val(imagenSerializada);
-    $("#formNew").submit();  
+    $("#formNew").submit();
 }
 
 function AbrirImagenes(idCasa){
 	//console.log("ssss");
-	$("#CasasView").load('CasasView.php?ID='+idCasa);	
+	$("#CasasView").load('CasasView.php?ID='+idCasa);
 }
 function eliminar(id){
     if(confirm("Seguro de eliminar el registro?")){
         location = 'CasasDelete.php?ID='+id;
     }
 }
-function editar(id){	
-	$("#CasasEdit").load('CasasEdit.php?ID='+id);	
+function editar(id){
+	$("#CasasEdit").load('CasasEdit.php?ID='+id);
 }
 function validarEdit(){
 	var enlaceSerializada = "";
 	var imagenSerializada = "";
 	$(".file-preview-image").each(function(index) {
-		imagenSerializada = imagenSerializada + $(this).attr('src') + "@";   
-	    
+		imagenSerializada = imagenSerializada + $(this).attr('src') + "@";
+
 	});
 	for(var i=1; i<=5; i++){
 		if($("#ENLACE_"+i+"_EDIT").val().trim()!=""){
-			enlaceSerializada = enlaceSerializada + $("#ENLACE_"+i+"_EDIT").val() + "|";			
-		}		
+			enlaceSerializada = enlaceSerializada + $("#ENLACE_"+i+"_EDIT").val() + "|";
+		}
 	}
 	if(enlaceSerializada.trim()!=""){
 		enlaceSerializada = enlaceSerializada.substring(0,enlaceSerializada.length-1);
@@ -230,8 +237,8 @@ function validarEdit(){
 	//console.log(imagenSerializada);
 	$("#enlaceSerializadaEdit").val(enlaceSerializada);
 	$("#imagenSerializadaEdit").val(imagenSerializada);
-    
+
 	//console.log($('.file-preview-image').attr('src'));
-    $("#formularioEdit").submit();   
+    $("#formularioEdit").submit();
 
 }

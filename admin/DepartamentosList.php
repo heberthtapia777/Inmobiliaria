@@ -1,4 +1,4 @@
-<?php 
+<?php
     include "cabecera.php";
     require_once "../srvInmoviliaria/app/model/Departamento.php";
     require_once "../srvInmoviliaria/app/model/Propiedad.php";
@@ -12,7 +12,7 @@
   width: 80% !important;
 }
 </style>
-<div class="dashboard-cards"> 
+<div class="dashboard-cards">
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
@@ -30,7 +30,7 @@
                                     <thead>
                                         <tr>
                                             <th>Registro</th>
-                                            <th>Detalle</th>    
+                                            <th>Detalle</th>
                                             <th>Cuota inicial</th>
                                             <th>Costo total</th>
                                             <th>Estado</th>
@@ -40,10 +40,10 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <?php 
+                                        <?php
                                             $Data = Departamento::getAll();
-                                            
-                                            foreach($Data as $Index => $Record){             
+
+                                            foreach($Data as $Index => $Record){
                                                 $propiedad = new Propiedad($Record["ID_PROPIEDAD"]);
                                                 $capacidad = explode("|",$Record["CAPACIDAD"]);
                                         ?>
@@ -52,11 +52,11 @@
                                                 <td><?php echo $Record["DETALLE"] ?></td>
                                                 <td><?php echo $Record["CUOTA_INICIAL"] ?></td>
                                                 <td><?php echo $Record["COSTO_TOTAL"] ?></td>
-                                             
-						<td class="center"><?php echo $propiedad->ESTADO ?></td>                                                
-                                             	<td><?php 
+
+						<td class="center"><?php echo $propiedad->ESTADO ?></td>
+                                             	<td><?php
                                              		for($i=0;$i<11;$i++){
-                                                		$det = explode("=",$capacidad[$i]);                                             	
+                                                		$det = explode("=",$capacidad[$i]);
                                              			echo $det[0]." : ".$det[1]."<br>";
                                              		}?>
                                              	</td>
@@ -68,21 +68,21 @@
 													<?php }?>
                                                 </td>
                                                 <td class="center" width="70px">
-                                                    <a href="#EditarModal" data-toggle="modal" data-target="#EditarModal" 
+                                                    <a href="#EditarModal" data-toggle="modal" data-target="#EditarModal"
                                                 		onclick="editar(<?php echo $Record["ID_DEPARTAMENTO"] ?>)">
                                                     	<i class="material-icons" >edit</i>
                                                     </a>
                                                     <a href="#">
                                                     <i class="material-icons dp48" onclick="eliminar(<?php echo $Record["ID_DEPARTAMENTO"] ?>)">delete</i>
-                                                    <spna></span>
-                                                    </a>                                                    
+                                                    <span></span>
+                                                    </a>
                                                 </td>
                                             </tr>
                                         <?php } ?>
-                                    </tbody>                                    
+                                    </tbody>
                                 </table>
                             </div>
-                            
+
                         </div>
                     </div>
                     <!--End Advanced Tables -->
@@ -101,11 +101,11 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      	<div id="DepartamentosView">			
+      	<div id="DepartamentosView">
 		</div>
-      
-      	<div class="modal-footer">      	
-        	<button type="button" class="btn btn-secondary" data-dismiss="modal">Aceptar</button>        
+
+      	<div class="modal-footer">
+        	<button type="button" class="btn btn-secondary" data-dismiss="modal">Aceptar</button>
       	</div>
     </div>
   </div>
@@ -122,7 +122,7 @@
       <?php include 'DepartamentosAdd.php'; ?>
       <div class="modal-footer">
       	<button type="button" class="btn btn-primary" data-dismiss="modal" onclick="validar()">Grabar</button>
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>        
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
       </div>
     </div>
   </div>
@@ -136,11 +136,11 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div id="DepartamentosEdit">			
+      <div id="DepartamentosEdit">
 	  </div>
-      <div class="modal-footer">      	
+      <div class="modal-footer">
       	<button type="button" class="btn btn-primary" data-dismiss="modal" onclick="validarEdit()">Grabar</button>
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>        
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
       </div>
     </div>
   </div>
@@ -148,6 +148,6 @@
 <script src="assets/js/dataTables/jquery.dataTables.js"></script>
 <script src="assets/js/dataTables/dataTables.bootstrap.js"></script>
 <script src="behind/DepartamentosList.js"></script>
-<?php 
+<?php
     include "pie.php";
 ?>

@@ -36,7 +36,7 @@
         msgProgress: 'Cargando archivo {index} of {files} - {name} - {percent}% completado.',
         msgSelected: '{n} archivos seleccionados',
         msgFoldersNotAllowed: 'Arrastre y suelte únicamente archivos! Se omite {n} carpeta(s).',
-        dropZoneTitle: 'Arrastre y suelte los archivos aquí &hellip;'
+        dropZoneTitle: 'Arrastre y suelte las imagenes aquí &hellip;'
     };
 
     $.extend($.fn.fileinput.defaults, $.fn.fileinput.locales.es);

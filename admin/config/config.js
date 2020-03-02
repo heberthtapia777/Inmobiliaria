@@ -8,9 +8,9 @@ var GLOBAL_VARS = {
 
 
 
-	srv:"http://localhost/PROY-FREDDY/web-inmo/srvInmoviliaria/public",
+	srv:"http://localhost/PROY-FREDDY/Inmobiliaria/srvInmoviliaria/public",
 
-	    raiz:"http://localhost/PROY-FREDDY/web-inmo/admin"
+	    raiz:"http://localhost/PROY-FREDDY/Inmobiliaria/admin"
 
 
 

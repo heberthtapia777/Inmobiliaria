@@ -1,16 +1,16 @@
-<?php 
+<?php
 	require_once "config/head_lib.php";
     require_once "../srvInmoviliaria/app/model/Casa.php";
 	require_once "../srvInmoviliaria/app/model/Propiedad.php";
-    
+
     $casa = new Casa($_POST["ID_CASA_EDIT"]);
 	$propiedad = new Propiedad($casa->ID_PROPIEDAD);
-        
+
     $propiedad->TIPO = 'CASA';
     $propiedad->FECHA = date('Y-m-d');
     $propiedad->ESTADO = $_POST["ESTADO_EDIT"];
     $idpropiedad = Propiedad::update($propiedad);
-    
+
     $capacidad = "SUPERFICIE=".$_POST["SUPERFICIE_EDIT"];
     $capacidad.= "|"."PISOS=".$_POST["PISOS_EDIT"];
     $capacidad.= "|"."SERVICIOS=".$_POST["SERVICIOS_EDIT"];
@@ -27,10 +27,10 @@
     $casa->GEOREFERENCIACION = $_POST["cx_EDIT"]."|".$_POST["cy_EDIT"];
     $casa->IMAGEN = $_POST["imagenSerializadaEdit"];
     $casa->CUOTA_INICIAL = $_POST["CUOTA_INICIAL_EDIT"];
-    $casa->COSTO_TOTAL = $_POST["COSTO_TOTAL_EDIT"];    
+    $casa->COSTO_TOTAL = $_POST["COSTO_TOTAL_EDIT"];
     $casa->ENLACE = $_POST["enlaceSerializadaEdit"];
     $idCasa = Casa::update($casa);
 ?>
 <script language="javascript">
-	location = 'CasasList.php'; 
+	location = 'CasasList.php';
 </script>
